@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# set the vars
+key=$(tail .token)
+jsonfile=.limit
+
+# set the functions
+format ()
+{
+sed -i 's/["{}]//g' $jsonfile;
+awk -F',' '{ for (i=1; i<=NF; i++) print $i }' $jsonfile
+}
+
+# send the request
+curl -o $jsonfile https://api.pushover.net/1/apps/limits.json?token=${key}
+
+echo
+
+# filter the json response
+format
+
+echo
