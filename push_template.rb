@@ -2,8 +2,8 @@ require "net/https"
 
 url = URI.parse("https://api.pushover.net/1/messages.json")
 req = Net::HTTP::Post.new(url.path)
-token = "a6a165nqzhh5ti31pxyqyxkt61irm9"
-user = "uihm386s9p3x5pnv3xy1ae1k93rmek"
+token = ""
+user = ""
 
 #message info
 title = ARGV[0]
