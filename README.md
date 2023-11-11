@@ -12,13 +12,13 @@ message = ARGV[1]
 #priorities: -2-lowest, -1-low, 0-norm, 1-high, 2-emg
 weight = ARGV[2]
 ```
-
-You will need to add the Pushover application token and user key to the variables first:
+- You will need to add the Pushover application token and user key to the variables first:
 ```
 Example:
 token = "elkjmn4lkjfoijeelknlkh409elkj"
 user = "lkfj48flkjsdf90w40dsflkjf"
 ```
+- Then execute the script:
 Example execution: `$ ruby push_template.rb "Greetings!" "Hello, GitHub!" "1"`
 
 ### Argument Error
@@ -61,3 +61,8 @@ req.set_form_data({
  
 ## opt directory
  Contains notification images that can be used as visuals (optional).
+
+### Future Additions
+- [ ] Add additional arguments for device, sound, etc.
+- [ ] File attachment control (currently needs to be manually changed in the script)
+- [ ] Automatic return of message limits in the main script (bash script removal)
