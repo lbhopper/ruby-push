@@ -6,8 +6,8 @@
  
  ![ruby_usage](https://github.com/BloodieToes/pushover-ruby/assets/116280844/9bcd174a-8d09-4567-9b7d-fee832d69933)
  
-# Bash Usage
- bash .lim (or) ./.lim
+# Check Your Message Limits
+ The ./lib/data directory contains a bash script that generates message limit information from your account using cURL
  
 # opt directory
  Contains notification images that can be used as visuals (optional).
