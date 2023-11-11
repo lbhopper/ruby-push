@@ -1,3 +1,6 @@
+# Usage:
+# ruby push_template.rb "Title" "Message" "Weight"
+#
 require "net/https"
 
 url = URI.parse("https://api.pushover.net/1/messages.json")
@@ -10,11 +13,12 @@ title = ARGV[0]
 message = ARGV[1]
 timestamp = Time.now
 sound = "cosmic"
+device = ""
 
 #priorities: -2-lowest, -1-low, 0-norm, 1-high, 2-emg
-weight = [-2, -1, 0, 1, 2]
+weight = ARGV[2]
 
-#attachment(s) - file size validation prior to push will occur
+#attachment(s) - file size validation will occur if the attach_flag is set to 1
 attach_flag = 0
 attach_file = '/path/to/file'
 max_size = 2621440
@@ -35,9 +39,10 @@ req.set_form_data({
     :token => "#{token}",
     :user => "#{user}",
     :title => "#{title}",
-    :priority => "#{weight[2]}",
+    :priority => "#{weight}",
     :message => "#{message}",
-    :sound => "#{sound}"
+    :sound => "#{sound}",
+    :device => "#{device}"
 })
 
 #check for ARGV and exit if empty
