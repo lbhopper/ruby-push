@@ -21,6 +21,16 @@ user = "lkfj48flkjsdf90w40dsflkjf"
 ```
 Example execution: `$ ruby push_template.rb "Greetings!" "Hello, GitHub!" "1"`
 
+### Argument Error
+If any of the three arguments are empy, the script will exit with error code 1. This is controlled by the following code (comment out to disable):
+```
+#check for ARGV and exit if empty
+if ARGV[0].empty? || ARGV[1].empty? || ARGV[2].empty?
+    puts "Requires at least three arguments: TITLE, MESSAGE, WEIGHT"
+    exit(1)
+end
+```
+
 ## Emergency Weight
 - When using the emergency weight (2), you also need to define two additional variables:
 ```
