@@ -1,15 +1,53 @@
 # pushover-ruby
- Ruby code utilizing the Pushover API and an added bash script to check notification limits on your account.
- 
-## Ruby Usage
- This ruby script accepts 3 arguments: Title, Message and weight.
- 
- ![ruby_usage](https://github.com/BloodieToes/pushover-ruby/assets/116280844/9bcd174a-8d09-4567-9b7d-fee832d69933)
- 
-## Check Your Message Limits
- The ./lib/data directory contains a bash script that generates message limit information from your account using cURL
+- Ruby code utilizing the Pushover API for notifications anytime, anywhere!
 
- ![bash_example](https://github.com/BloodieToes/pushover-ruby/assets/116280844/bef516fb-b2b2-45b2-94c0-e4274e4dc937)
+## Instructions
+This ruby script accepts 3 arguments: Title `ARGV[0]`, Message `ARGV[1]` and message weight [^1] `ARGV[2]`
+[^1]: Refer to the Pushover API documentation here: https://pushover.net/api
+```
+#message info
+title = ARGV[0]
+message = ARGV[1]
+...
+#priorities: -2-lowest, -1-low, 0-norm, 1-high, 2-emg
+weight = ARGV[2]
+```
+
+You will need to add the Pushover application token and user key to the variables first:
+```
+Example:
+token = "elkjmn4lkjfoijeelknlkh409elkj"
+user = "lkfj48flkjsdf90w40dsflkjf"
+```
+Example execution: `$ ruby push_template.rb "Greetings!" "Hello, GitHub!" "1"`
+
+## Emergency Weight
+- When using the emergency weight (2), you also need to define two additional variables:
+```
+#for emergency priority
+retries = "30"  # minimum requirement in seconds between notifications
+expiration = "300" # time in seconds to continue the notification before expiring
+```
+- Then add those into the message:
+```
+#add additional parameters based on template creating
+req.set_form_data({
+    :token => "#{token}",
+    :user => "#{user}",
+    :title => "#{title}",
+    :priority => "#{weight}",
+    :message => "#{message}",
+    :sound => "#{sound}",
+    :device => "#{device}",
+    :retry => "#{retries}",    #x#
+    :expire => "#{expiration}" #x#
+})
+```
+ 
+# Check Your Message Limits
+ The ./lib/data directory contains a bash script that requests message limits from your account using cURL
+
+`bash .lim` (renaming the script is recommended so you know what it is)
  
 ## opt directory
  Contains notification images that can be used as visuals (optional).
