@@ -4,3 +4,5 @@
  ruby pushover_template.rb "Title" "Message" "Weight"
 # Bash Usage
  bash .lim (or) ./.lim
+# opt directory
+ Contains notification images that can be used as visuals (optional)
