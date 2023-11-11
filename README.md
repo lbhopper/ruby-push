@@ -1,4 +1,6 @@
 # pushover-ruby
- Ruby code utilizing the Pushover API
-# Usage
+ Ruby code utilizing the Pushover API and an added bash script to check notification limits on your account.
+# Ruby Usage
  ruby pushover_template.rb "Title" "Message" "Weight"
+# Bash Usage
+ bash .lim (or) ./.lim
