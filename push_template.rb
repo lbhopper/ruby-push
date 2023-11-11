@@ -46,8 +46,8 @@ req.set_form_data({
 })
 
 #check for ARGV and exit if empty
-if ARGV.empty?
-    puts "Requires at least two arguments"
+if ARGV[0].empty? || ARGV[1].empty? || ARGV[2].empty?
+    puts "Requires at least three arguments: TITLE, MESSAGE, WEIGHT"
     exit(1)
 end
 
