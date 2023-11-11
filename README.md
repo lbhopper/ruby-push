@@ -19,7 +19,7 @@ token = "elkjmn4lkjfoijeelknlkh409elkj"
 user = "lkfj48flkjsdf90w40dsflkjf"
 ```
 - Then execute the script:
-Example execution: `$ ruby push_template.rb "Greetings!" "Hello, GitHub!" "1"`
+ `$ ruby push_template.rb "Greetings!" "Hello, GitHub!" "1"`
 
 ### Argument Error
 If any of the three arguments are empy, the script will exit with error code 1. This is controlled by the following code (comment out to disable):
