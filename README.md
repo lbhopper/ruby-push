@@ -66,3 +66,5 @@ req.set_form_data({
 - [ ] Add additional arguments for device, sound, etc.
 - [ ] File attachment control (currently needs to be manually changed in the script)
 - [ ] Automatic return of message limits in the main script (bash script removal)
+---
+If you find this useful, feel free to fork it. For any issues, please submit an issue prior to a pull request.
