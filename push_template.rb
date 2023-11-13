@@ -31,7 +31,7 @@ max_size = 2621440
 retries = ""
 expiration = ""
 
-#add journal message - this will write to the syslog when triggered
+#add syslog entry
 syslog1 = "Push - SUCCESS"
 syslog2 = "Push - FAILED"
 syslog3 = "RESERVED"
