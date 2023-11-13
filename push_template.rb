@@ -8,9 +8,13 @@ req = Net::HTTP::Post.new(url.path)
 token = ""
 user = ""
 
-#message info
+#message variables
+
+#-required
 title = ARGV[0]
 message = ARGV[1]
+
+#optional
 timestamp = Time.now
 sound = "cosmic"
 device = ""
@@ -34,7 +38,7 @@ syslog3 = "RESERVED"
 syslog4 = "RESERVED"
 syslog5 = "Push - File Size Error: Exceeds #{max_size}"
 
-#add additional parameters based on template creating
+#add optional variables here
 req.set_form_data({
     :token => "#{token}",
     :user => "#{user}",
