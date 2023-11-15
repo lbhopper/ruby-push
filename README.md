@@ -9,8 +9,6 @@
 
 ## Usage 1
 
-## Usage 2
-
 ## Config.yaml File
 - Set default parameters to your notifications
 - Easy configuration
