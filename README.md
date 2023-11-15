@@ -1,7 +1,7 @@
-# ruby-push
+# ruby-push ![Static Badge](https://img.shields.io/badge/Release-1.0.2-green)
 Use the ruby programming language to handle your Pushover notifications
 
-## Gem Requirements
+## Gem Requirements ![Static Badge](https://img.shields.io/badge/Ruby-Gems-red)
 - net-http (default: 0.2.2)
 - base64 (0.2.0, default: 0.1.1)
 ```
@@ -12,16 +12,15 @@ require 'base64'
 ## Usage
 The script has ARGV[0] set by default for the message content. This is set by calling the script, then the argument:
 - `ruby push.rb "argument goes here"`
-
 ## Config.yaml File
 - Set default parameters to your notifications
 - Easy configuration
 - Expandable
 
-## Emergency Weight
-
+## Emergency Priority
+- ![Static Badge](https://img.shields.io/badge/STATUS-WIP-yellow)
 ### Receipts
-
+- ![Static Badge](https://img.shields.io/badge/STATUS-WIP-yellow)
 # Message Limits
 Message limits are checked after each push with the following:
 ```
