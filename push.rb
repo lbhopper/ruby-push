@@ -8,10 +8,12 @@ config = YAML.load_file('config.yaml')
 
 #-Pushover API Data
 url = URI.parse(config['push_api']['url'])
+limit_req = URI.parse(config['push_api']['limit_url'])
 token = config['push_api']['robotics']
 user = config['push_api']['user']
 req1 = Net::HTTP::Post.new(url.path)
 req2 = Net::HTTP::Post.new(url.path)
+apps_limit = Net::HTTP::Get.new(limit_req.path)
 
 #-controlled by the config.yaml file
 title = config['push']['title_work']
@@ -38,10 +40,7 @@ retries = config['emergency']['retry']
 expiration = config['emergency']['expire']
 receipt = config['emergency']['receipt_file']
 
-#############
-#-Form Data-#
-#############
-
+# Default request form data to be sent
 req1.set_form_data({
     :token => token,
     :user => user,
@@ -50,6 +49,11 @@ req1.set_form_data({
     :message => message,
     :sound => sound,
     :device => device
+})
+
+# Request to check message limits on the current application
+apps_limit.set_form_data({
+    :token => token
 })
 
 #-checks if attach_flag is 1 then checks file size before pushing
@@ -93,4 +97,14 @@ else
         file.write(response.code, response.body)
         file.puts("\n" + '-' * 50 + "\n")
     end
+end
+
+# Requests message limits after push and add it to the responses.txt
+res = Net::HTTP.new(limit_req.host, limit_req.port)
+res.use_ssl = true
+res.verify_mode = OpenSSL::SSL::VERIFY_PEER
+response = res.start { |http| http.request(apps_limit) }
+File.open(response_file, 'a') do |file|
+    file.write(response.code, response.body)
+    file.puts("\n" + '-' * 50 + "\n")
 end
