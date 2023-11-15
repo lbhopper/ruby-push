@@ -1,0 +1,63 @@
+# push.rb config file
+
+# API Data
+push_api:
+  url: "https://api.pushover.net/1/messages.json"
+  token: "a6a165nqzhh5ti31pxyqyxkt61irm9"
+  user: "uihm386s9p3x5pnv3xy1ae1k93rmek"
+
+# Push Configuration
+push:
+  title: "Testing New Config"
+  message: "Push.rb Default Message - Please change in the config.yaml file"
+  priority:
+    - -2
+    - -1
+    - 0
+    - 1
+    - 2
+  sound:
+    - pushover      #0
+    - bike          #1
+    - bugle         #2
+    - cashregister  #3
+    - classical     #4
+    - cosmic        #5
+    - falling       #6
+    - gamelan       #7
+    - incoming      #8
+    - intermission  #9
+    - magic         #10
+    - mechanical    #11
+    - pianobar      #12
+    - siren         #13
+    - spacealarm    #14
+    - tugboat       #15
+    - alien         #16
+    - climb         #17
+    - persistent    #18
+    - echo          #19
+    - updown        #20
+    - vibrate       #21
+    - none          #22
+  custom_sound: ""
+  device: "MyPhone"
+  timestamp: ""
+  html: 0
+  ttl: ""
+  url: ""
+  url_title: ""
+
+# Attachments - 
+attachment:
+  flag: 0
+  type: ""
+  base64_flag: 0
+  path: ""
+  max_size: 2621440
+
+# Emergency Priority Config (in seconds)
+emergency:
+  retry: 60
+  expire: 3600
+  callback_url:
