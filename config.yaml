@@ -54,16 +54,19 @@ push:
   url_title: ""
   res_file: "responses.txt"
 
-# Attachments - 
-attachment:
-  flag: 0
-  type: ""
-  base64_flag: 0
-  path: ""
+# Attachments - configured for base64 encoding
+#file_path will be used to encode the attachment
+#image to base64 when the flag is set to 1
+image:
+  flag: 1
+  type: "image/png"
+  file_path: "./opt/0.png"
   max_size: 2621440
 
 # Emergency Priority Config (in seconds)
 emergency:
+  flag: 0
   retry: 60
   expire: 3600
-  callback_url:
+  callback_url: ""
+  receipt_file: "emg_receipts.txt"

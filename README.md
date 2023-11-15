@@ -8,7 +8,7 @@ Ruby script utilizing the Pushover API
 - base64 (0.2.0, default: 0.1.1)
 
 ## Usage
-`ruby push.rb "message goes here`
+`ruby push.rb "message goes here"`
 
 ## Config.yaml File
 - Set default parameters to your notifications

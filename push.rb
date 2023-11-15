@@ -1,6 +1,7 @@
 #
 require "net/https"
 require "yaml"
+require 'base64'
 
 #-Load the config.yaml
 config = YAML.load_file('config.yaml')
@@ -9,7 +10,8 @@ config = YAML.load_file('config.yaml')
 url = URI.parse(config['push_api']['url'])
 token = config['push_api']['robotics']
 user = config['push_api']['user']
-req = Net::HTTP::Post.new(url.path)
+req1 = Net::HTTP::Post.new(url.path)
+req2 = Net::HTTP::Post.new(url.path)
 
 #-controlled by the config.yaml file
 title = config['push']['title_work']
@@ -24,22 +26,23 @@ html_flag = config['push']['html']
 time_to_live = config['push']['ttl']
 msg_url = config['push']['url']
 url_title = config['push']['url_title']
-attach_flag = config['attachment']['flag']
-attach_file = config['attachment']['path']
-attach_type = config['attachment']['type']
-attach_b64 = config['attachment']['base64_flag']
-max_size = config['attachment']['max_size']
+attach_flag = config['image']['flag']
+attach_file = config['image']['file_path']
+attach_type = config['image']['type']
+max_size = config['image']['max_size']
 response_file = config['push']['res_file']
 
 #-required for emergency priority (optional otherwise)
+emg_flag = config['emergency']['flag']
 retries = config['emergency']['retry']
 expiration = config['emergency']['expire']
+receipt = config['emergency']['receipt_file']
 
 #############
 #-Form Data-#
 #############
 
-req.set_form_data({
+req1.set_form_data({
     :token => token,
     :user => user,
     :title => title,
@@ -52,10 +55,28 @@ req.set_form_data({
 #-checks if attach_flag is 1 then checks file size before pushing
 if attach_flag == 1
     if File.size(attach_file) < max_size
+
+        # set the Base64 variable
+        b64_image_path = attach_file
+        b64_data = File.read(b64_image_path)
+        b64_encoded = Base64.encode64(b64_data)
+
+        req2.set_form_data({
+            :token => token,
+            :user => user,
+            :title => title,
+            :priority => weight,
+            :message => message,
+            :sound => sound,
+            :device => device,
+            :attachment_base64 => b64_encoded,
+            :attachment_type => attach_type
+        })
+
         res = Net::HTTP.new(url.host, url.port)
         res.use_ssl = true
         res.verify_mode = OpenSSL::SSL::VERIFY_PEER
-        response = res.start { |http| http.request(req) }
+        response = res.start { |http| http.request(req2) }
         File.open(response_file, 'a') do |file|
             file.write(response.code, response.body)
             file.puts("\n" + '-' * 50 + "\n")
@@ -67,7 +88,7 @@ else
     res = Net::HTTP.new(url.host, url.port)
     res.use_ssl = true
     res.verify_mode = OpenSSL::SSL::VERIFY_PEER
-    response = res.start { |http| http.request(req) }
+    response = res.start { |http| http.request(req1) }
     File.open(response_file, 'a') do |file|
         file.write(response.code, response.body)
         file.puts("\n" + '-' * 50 + "\n")
