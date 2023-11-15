@@ -30,7 +30,7 @@ Use the ruby programming language to handle your Pushover notifications
 ## Attachments
 - Need to attach an image? Set the image flag to 1, set your image directory path and the type. push.rb will check for the flag, then check the file size before pushing:
 
-![attachments (1)](https://github.com/BloodieToes/ruby-push/blob/main/attachments%20(1).png?raw=true)
+![attachments (1)](https://github.com/BloodieToes/ruby-push/blob/main/attachments.png?raw=true)
 
 - then push.rb will encode the image to a Base64 encoding:
 
