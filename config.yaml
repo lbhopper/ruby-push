@@ -3,7 +3,8 @@
 # API Data
 push_api:
   url: "https://api.pushover.net/1/messages.json"
-  token: "a6a165nqzhh5ti31pxyqyxkt61irm9"
+  home: "a6a165nqzhh5ti31pxyqyxkt61irm9"
+  robotics: "akp6w35kcik5dhr5d6e58x93fk425s"
   user: "uihm386s9p3x5pnv3xy1ae1k93rmek"
 
 # Push Configuration
@@ -41,7 +42,8 @@ push:
     - vibrate       #21
     - none          #22
   custom_sound: ""
-  device: "MyPhone"
+  device1: "MyPhone"
+  device2: "iphone"
   timestamp: ""
   html: 0
   ttl: ""

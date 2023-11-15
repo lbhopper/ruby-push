@@ -7,7 +7,7 @@ config = YAML.load_file('config.yaml')
 
 #-Pushover API Data
 url = URI.parse(config['push_api']['url'])
-token = config['push_api']['token']
+token = config['push_api']['robotics']
 user = config['push_api']['user']
 req = Net::HTTP::Post.new(url.path)
 
@@ -17,7 +17,7 @@ priority = config['push']['priority']
 weight = priority[2]
 sound_list = config['push']['sound']
 sound = sound_list[5]
-device = config['push']['device']
+device = config['push']['device2']
 timestamp = config['push']['timestamp']
 html_flag = config['push']['html']
 time_to_live = config['push']['ttl']
