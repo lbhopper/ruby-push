@@ -1,12 +1,13 @@
 # ruby-push
 Ruby script utilizing the Pushover API
 
-## Package Requirements (Linux OS)
-- ruby v3 or greater
-- gem v3 or greater
+## Requirements
 - net-http (default: 0.2.2)
 - base64 (0.2.0, default: 0.1.1)
-
+```
+require 'net/http'
+require 'base64'
+```
 ## Usage
 `ruby push.rb "message goes here"`
 
