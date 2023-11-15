@@ -3,21 +3,22 @@
 # API Data
 push_api:
   url: "https://api.pushover.net/1/messages.json"
-  home: "a6a165nqzhh5ti31pxyqyxkt61irm9"
-  robotics: "akp6w35kcik5dhr5d6e58x93fk425s"
-  user: "uihm386s9p3x5pnv3xy1ae1k93rmek"
+  app_token1: "your-app-token-here"
+  app_token2: "your-app-token-here"
+  user: "your-user-key-here"
   limit: 10000
   limit_url: "https://api.pushover.net/1/apps/limits.json"
 
 # Push Configuration
 push:
-  title_home: "HomeServer Alert"
-  title_work: "WorkMachine Alert"
-  message: "Generic Message - Please configure (config.yaml)"
+  title1: "Alert Title1"
+  title2: "Alert Title2"
+  message1: "Generic Message - Please configure (config.yaml)"
+  message2: "Generic Message - Please configure (config.yaml)"
   priority:
     - -2            #0
     - -1            #1
-    - 0             #2
+    - 0             #2 - Default
     - 1             #3
     - 2             #4
   sound:
@@ -26,7 +27,7 @@ push:
     - bugle         #2
     - cashregister  #3
     - classical     #4
-    - cosmic        #5
+    - cosmic        #5 - Default
     - falling       #6
     - gamelan       #7
     - incoming      #8
@@ -45,8 +46,8 @@ push:
     - vibrate       #21
     - none          #22
   custom_sound: ""
-  device1: "MyPhone"
-  device2: "iphone"
+  device1: ""
+  device2: ""
   timestamp: ""
   html: 0
   ttl: ""
@@ -60,7 +61,7 @@ push:
 image:
   flag: 0
   type: "image/png"
-  file_path: "./opt/0.png"
+  file_path: ""
   max_size: 2621440
 
 # Emergency Priority Config (in seconds)

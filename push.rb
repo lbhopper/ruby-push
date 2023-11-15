@@ -9,14 +9,14 @@ config = YAML.load_file('config.yaml')
 #-Pushover API Data
 url = URI.parse(config['push_api']['url'])
 limit_req = URI.parse(config['push_api']['limit_url'])
-token = config['push_api']['robotics']
+token = config['push_api']['app_token2']
 user = config['push_api']['user']
 req1 = Net::HTTP::Post.new(url.path)
 req2 = Net::HTTP::Post.new(url.path)
 apps_limit = Net::HTTP::Get.new(limit_req.path)
 
 #-controlled by the config.yaml file
-title = config['push']['title_work']
+title = config['push']['title2']
 message = ARGV[0]
 priority = config['push']['priority']
 weight = priority[2]
