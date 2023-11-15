@@ -27,12 +27,21 @@ Use the ruby programming language to handle your Pushover notifications
 
 ![config_snip](https://github.com/BloodieToes/ruby-push/assets/116280844/ed325031-07dd-47fd-aa43-f061839adf1a)
 
+## Attachments
+- Need to attach an image? Set the image flag to 1, set your image directory path and the type. push.rb will check for the flag, then check the file size before pushing:
+
+![attachments (1)](https://github.com/BloodieToes/ruby-push/assets/116280844/4e92ed51-540d-4f98-a383-43fe3ca1128e)
+
+- then push.rb will encode the image to a Base64 encoding:
+
+![b64](https://github.com/BloodieToes/ruby-push/assets/116280844/06566007-a11b-44e3-826f-0ecd61c1b425)
+
 # Emergency Priority
 - ![Static Badge](https://img.shields.io/badge/STATUS-WIP-yellow)
 ### Receipts
 - ![Static Badge](https://img.shields.io/badge/STATUS-WIP-yellow)
 # Message Limits
-Message limits are checked after each push with the following:
+Message limits are checked after each push with the following request:
 
 ![requests](https://github.com/BloodieToes/ruby-push/assets/116280844/8ba7cd9d-b6c9-467a-a4fe-06818bcc0d4b)
  
