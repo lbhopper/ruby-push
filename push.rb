@@ -11,7 +11,8 @@ token = config['push_api']['robotics']
 user = config['push_api']['user']
 req = Net::HTTP::Post.new(url.path)
 
-title = config['push']['title']
+#-controlled by the config.yaml file
+title = config['push']['title_work']
 message = ARGV[0]
 priority = config['push']['priority']
 weight = priority[2]
@@ -28,6 +29,7 @@ attach_file = config['attachment']['path']
 attach_type = config['attachment']['type']
 attach_b64 = config['attachment']['base64_flag']
 max_size = config['attachment']['max_size']
+response_file = config['push']['res_file']
 
 #-required for emergency priority (optional otherwise)
 retries = config['emergency']['retry']
@@ -54,7 +56,10 @@ if attach_flag == 1
         res.use_ssl = true
         res.verify_mode = OpenSSL::SSL::VERIFY_PEER
         response = res.start { |http| http.request(req) }
-        puts "#{response.code}"
+        File.open(response_file, 'a') do |file|
+            file.write(response.code, response.body)
+            file.puts("\n" + '-' * 50 + "\n")
+        end
     else
         puts "#{response.code}, #{response.body}"
     end
@@ -63,5 +68,8 @@ else
     res.use_ssl = true
     res.verify_mode = OpenSSL::SSL::VERIFY_PEER
     response = res.start { |http| http.request(req) }
-    puts "#{response.code}"
+    File.open(response_file, 'a') do |file|
+        file.write(response.code, response.body)
+        file.puts("\n" + '-' * 50 + "\n")
+    end
 end

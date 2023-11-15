@@ -6,17 +6,20 @@ push_api:
   home: "a6a165nqzhh5ti31pxyqyxkt61irm9"
   robotics: "akp6w35kcik5dhr5d6e58x93fk425s"
   user: "uihm386s9p3x5pnv3xy1ae1k93rmek"
+  limit: 10000
+  limit_url: "https://api.pushover.net/1/apps/limits.json"
 
 # Push Configuration
 push:
-  title: "Testing New Config"
-  message: "Push.rb Default Message - Please change in the config.yaml file"
+  title_home: "HomeServer Alert"
+  title_work: "WorkMachine Alert"
+  message: "Generic Message - Please configure (config.yaml)"
   priority:
-    - -2
-    - -1
-    - 0
-    - 1
-    - 2
+    - -2            #0
+    - -1            #1
+    - 0             #2
+    - 1             #3
+    - 2             #4
   sound:
     - pushover      #0
     - bike          #1
@@ -49,6 +52,7 @@ push:
   ttl: ""
   url: ""
   url_title: ""
+  res_file: "responses.txt"
 
 # Attachments - 
 attachment:
