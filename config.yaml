@@ -58,7 +58,7 @@ push:
 #file_path will be used to encode the attachment
 #image to base64 when the flag is set to 1
 image:
-  flag: 1
+  flag: 0
   type: "image/png"
   file_path: "./opt/0.png"
   max_size: 2621440
