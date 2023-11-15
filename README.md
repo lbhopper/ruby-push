@@ -1,4 +1,4 @@
-# push.rb ![Static Badge](https://img.shields.io/badge/Release-1.0.2-green)
+# push.rb
 Use the ruby programming language to handle your Pushover notifications
 
 ## Gem Requirements
