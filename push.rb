@@ -99,7 +99,7 @@ else
     end
 end
 
-# Requests message limits after push and add it to the responses.txt
+# Request message limits after push and add it to the responses.txt
 res = Net::HTTP.new(limit_req.host, limit_req.port)
 res.use_ssl = true
 res.verify_mode = OpenSSL::SSL::VERIFY_PEER
