@@ -1,39 +1,40 @@
-# ruby-push ![Static Badge](https://img.shields.io/badge/Release-1.0.2-green)
+# push.rb ![Static Badge](https://img.shields.io/badge/Release-1.0.2-green)
 Use the ruby programming language to handle your Pushover notifications
 
-## Gem Requirements ![Static Badge](https://img.shields.io/badge/Ruby-Gems-red)
-- net-http (default: 0.2.2)
-- base64 (0.2.0, default: 0.1.1)
-```
-require 'net/http'
-require 'yaml'
-require 'base64'
-```
-## Usage
-The script has ARGV[0] set by default for the message content. This is set by calling the script, then the argument:
-- `ruby push.rb "argument goes here"`
-## Config.yaml File
-- Set default parameters to your notifications
-- Easy configuration
-- Expandable
+## Gem Requirements
 
-## Emergency Priority
+![gems](https://github.com/BloodieToes/ruby-push/assets/116280844/e3881038-941c-44ca-bec2-76d2c73276c6)
+
+# Setup & Usage
+### API Setup
+- In order to take advantage of this ruby script, you must first set the application token and user key in the config.yaml file:
+
+![api_data](https://github.com/BloodieToes/ruby-push/assets/116280844/78b57621-17d8-41e7-b495-29289cc6d6ca)
+
+### Usage
+- The script has ARGV[0] set by default for the message content. This is handled by calling the script, then the argument:
+
+![usage](https://github.com/BloodieToes/ruby-push/assets/116280844/35b53cc3-7967-44c3-aece-5fd6b44e9824)
+
+# Config.yaml File
+- push.rb relies on the config.yaml file to pull in various parameters, which limits the amount of time spent inside the push.rb script
+- Configure the yaml file with your application token, user key, device name(s), notification sound, etc.
+- By default, the priority & sound dictionaries are set in the push.rb script:
+
+![yaml_example1](https://github.com/BloodieToes/ruby-push/assets/116280844/b4b50eda-1a0a-4e4f-a035-59c38506581b)
+
+- Here, we can select which priority and sound to use (nested items have been marked with their corresponding numbers)
+
+![config_snip](https://github.com/BloodieToes/ruby-push/assets/116280844/ed325031-07dd-47fd-aa43-f061839adf1a)
+
+# Emergency Priority
 - ![Static Badge](https://img.shields.io/badge/STATUS-WIP-yellow)
 ### Receipts
 - ![Static Badge](https://img.shields.io/badge/STATUS-WIP-yellow)
 # Message Limits
 Message limits are checked after each push with the following:
-```
-# Request message limits after push and add it to the responses.txt
-res = Net::HTTP.new(limit_req.host, limit_req.port)
-res.use_ssl = true
-res.verify_mode = OpenSSL::SSL::VERIFY_PEER
-response = res.start { |http| http.request(apps_limit) }
-File.open(response_file, 'a') do |file|
-    file.write(response.code, response.body)
-    file.puts("\n" + '-' * 50 + "\n")
-end
-```
+
+![requests](https://github.com/BloodieToes/ruby-push/assets/116280844/8ba7cd9d-b6c9-467a-a4fe-06818bcc0d4b)
  
-## opt directory
+# opt directory
  Contains notification images that can be used as visuals (optional).
