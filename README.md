@@ -46,12 +46,13 @@ Message limits are checked after each push with the following request:
 ![requests](https://github.com/BloodieToes/ruby-push/blob/main/requests.png?raw=true)
  
 # opt directory
- Contains notification images that can be used as visuals (optional)
+
+ Contains notification images that can be used as visuals (optional).
 
 # Contributing
-1. Fork the repo
-2. Switch to the dev branch: `git checkout dev`
+1. Fork the main branch
+2. Switch to this branch: `git checkout dev`
 3. Create your feature branch: `git checkout -b your-feature-name`
 4. Commit your changes: `git commit -am 'your added feature'`
 5. Push to the branch: `git push origin your-feature-name`
-6. Create a new Pull Request against the `dev` repo
+6. Create a new Pull Request against this repo
