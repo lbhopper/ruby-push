@@ -46,6 +46,7 @@ Message limits are checked after each push with the following request:
 ![requests](https://github.com/BloodieToes/ruby-push/blob/main/requests.png?raw=true)
  
 # opt directory
+
  Contains notification images that can be used as visuals (optional).
 
 # Contributing
