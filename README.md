@@ -51,8 +51,8 @@ Message limits are checked after each push with the following request:
 
 # Contributing
 1. Fork the main branch
-2. Switch to this branch: `git checkout dev`
+2. Switch to the dev branch: `git checkout dev`
 3. Create your feature branch: `git checkout -b your-feature-name`
 4. Commit your changes: `git commit -am 'your added feature'`
 5. Push to the branch: `git push origin your-feature-name`
-6. Create a new Pull Request against this repo
+6. Create a new Pull Request against the dev repo
