@@ -86,7 +86,8 @@ if attach_flag == 1
             file.puts("\n" + '-' * 50 + "\n")
         end
     else
-        puts "#{response.code}, #{response.body}"
+        puts "Push Error: File exceeds size of #{max_size} - Notification Aborted."
+        exit(1)
     end
 else
     res = Net::HTTP.new(url.host, url.port)
@@ -99,7 +100,7 @@ else
     end
 end
 
-# Request message limits after push and add it to the responses.txt
+# Request message limits after successful push and add it to the responses.txt
 res = Net::HTTP.new(limit_req.host, limit_req.port)
 res.use_ssl = true
 res.verify_mode = OpenSSL::SSL::VERIFY_PEER
